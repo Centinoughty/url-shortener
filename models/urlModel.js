@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const formatDate = require("../util/formatDate");
 
 const urlSchema = new mongoose.Schema(
   {
@@ -23,9 +24,9 @@ const urlSchema = new mongoose.Schema(
       default: 0,
     },
     date: {
-      type: Date,
+      type: String,
       required: true,
-      default: Date.now,
+      default: () => formatDate(new Date()),
     },
   },
   { timestamps: true }
