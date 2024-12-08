@@ -27,6 +27,22 @@ router.post("/shorten", async (req, res) => {
   }
 });
 
+router.get("/details/:url", async (req, res) => {
+  try {
+    const { url } = req.params;
+
+    const urlDet =
+      (await Url.findOne({ url })) || (await Url.findOne({ shortUrl: url }));
+
+    return res
+      .status(200)
+      .json({ message: "Details fetched", hitCount: urlDet.hitCount });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 router.get("/:shortUrl", async (req, res) => {
   try {
     const { shortUrl } = req.params;
