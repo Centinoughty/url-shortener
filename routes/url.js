@@ -43,6 +43,19 @@ router.get("/details/:url", async (req, res) => {
   }
 });
 
+router.get("/top/:number", async (req, res) => {
+  try {
+    const { number } = req.params;
+    const limit = parseInt(number, 10);
+
+    const topUrls = await Url.find().sort({ hitCount: -1 }).limit(limit);
+
+    res.status(200).json({ topUrls });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 router.get("/:shortUrl", async (req, res) => {
   try {
     const { shortUrl } = req.params;
