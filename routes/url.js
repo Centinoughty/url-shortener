@@ -97,7 +97,7 @@ router.get("/:shortUrl", async (req, res) => {
     await existingShortUrl.save();
 
     if (existingShortUrl.dailyHit === Number(DAILY_LIMIT)) {
-      return res.redirect("/");
+      return res.status(400).json({ message: "Limit exceeded" });
     }
 
     if (existingShortUrl.hitCount % Number(HIT_REDIRECT) === 0) {
