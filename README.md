@@ -1,6 +1,7 @@
 # URL Shortener
 
 A URL shortener built with **Express.js** and **MongoDB**. This project includes the following features:
+
 - Ad display after 10 hits
 - Daily hit limit of 20 per URL
 - Collision-free operation
@@ -8,22 +9,26 @@ A URL shortener built with **Express.js** and **MongoDB**. This project includes
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/Centinoughty/url-shortener.git
 
+   ```
+
 2. Navigate to the project directory:
-  ```bash
-  cd url-shortener
+
+````bash
+cd url-shortener
 
 3. Install dependencies
-  ```bash
-  npm install
+```bash
+npm install
 
 4. Set up MongoDB (local or cloud service like MongoDB Atlas).
 
 5. Run the application:
-  ```bash
-  npm start
+```bash
+npm start
 
 ## Features
 
@@ -35,3 +40,4 @@ A URL shortener built with **Express.js** and **MongoDB**. This project includes
 ## License
 
 This project is licensed under the MIT License.
+````
