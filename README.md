@@ -12,23 +12,27 @@ A URL shortener built with **Express.js** and **MongoDB**. This project includes
 
    ```bash
    git clone https://github.com/Centinoughty/url-shortener.git
-
    ```
 
 2. Navigate to the project directory:
 
-````bash
+```bash
 cd url-shortener
+```
 
 3. Install dependencies
+
 ```bash
 npm install
+```
 
 4. Set up MongoDB (local or cloud service like MongoDB Atlas).
 
 5. Run the application:
+
 ```bash
 npm start
+```
 
 ## Features
 
@@ -40,4 +44,3 @@ npm start
 ## License
 
 This project is licensed under the MIT License.
-````
