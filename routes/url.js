@@ -48,10 +48,29 @@ router.get("/top/:number", async (req, res) => {
     const { number } = req.params;
     const limit = parseInt(number, 10);
 
-    const topUrls = await Url.find().sort({ hitCount: -1 }).limit(limit);
+    const topUrls = await Url.find()
+      .select("url hitCount")
+      .sort({ hitCount: -1 })
+      .limit(limit);
 
-    res.status(200).json({ topUrls });
+    topUrls.forEach(async (topUrl) => {
+      const today = formatDate(new Date());
+      if (today !== topUrl.date) {
+        topUrl.dailyHit = 0;
+        topUrl.date = today;
+      }
+
+      await topUrl.save();
+    });
+
+    const sanitizedTopUrls = topUrls.map(({ url, hitCount }) => ({
+      url,
+      hitCount,
+    }));
+
+    res.status(200).json({ topUrls: sanitizedTopUrls });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
