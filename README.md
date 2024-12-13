@@ -34,6 +34,11 @@ npm install
 npm start
 ```
 
+## Deplyment
+
+The backend is hosted on render.com
+> https://url-shortener-dbf4.onrender.com/
+
 ## Features
 
 - **URL shortening**: Create custom short URLs.
