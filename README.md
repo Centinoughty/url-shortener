@@ -36,8 +36,33 @@ npm start
 
 ## Deplyment
 
-The backend is hosted on render.com
+The backend is hosted on Render
 > https://url-shortener-dbf4.onrender.com/
+
+## Usage
+
+1. Shorten a URL
+
+```bash
+curl -X POST https://url-shortener-dbf4.onrender.com/shorten -H "Content-Type: application/json" -d '{"url": "https://nadeemsiyam.vercel.app"}'
+```
+2. Get the URL
+
+```bash
+curl -X GET https://url-shortener-dbf4.onrender.com/PxPmFnBcFe -H "Content-Type: application/json"
+```
+
+3. Get the URL details
+
+```bash
+curl -X GET https://url-shortener-dbf4.onrender.com/details/PxPmFnBcFe -H "Content-Type: application/json"
+```
+
+4. Display the first **4** URL based on the hit count
+
+```bash
+curl -X GET https://url-shortener-dbf4.onrender.com/top/4 -H "Content-Type: application/json"
+```
 
 ## Features
 
