@@ -6,5 +6,7 @@ services:
     container_name: url-app
     env_file:
       - .env
+    volumes:
+      - ./app:/app/app
     ports:
-      - "8000:8000"
+      - "5000:5000"
