@@ -23,10 +23,21 @@ services:
       - HEAP_NEWSIZE=100M
     networks:
       - url-net
+  
+  redis:
+    image: redis:7
+    container_name: url-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    networks:
+      - url-net
 
 volumes:
   cassandra_data:
     name: url-db
+  redis_data:
+    name: url-redis
 
 networks:
   url-net:
