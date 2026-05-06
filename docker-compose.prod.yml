@@ -2,12 +2,10 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: url-app
+      dockerfile: Dockerfile
+    container_name: url-app-prod
     env_file:
       - .env
-    volumes:
-      - ./app:/app/app
     ports:
       - "5000:5000"
     networks:
@@ -15,7 +13,7 @@ services:
   
   cassandra:
     image: cassandra:4.1
-    container_name: url-db
+    container_name: url-db-prod
     volumes:
       - cassandra_data:/var/lib/cassandra
     environment:
@@ -26,7 +24,7 @@ services:
   
   redis:
     image: redis:7
-    container_name: url-redis
+    container_name: url-redis-prod
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis_data:/data
@@ -35,9 +33,9 @@ services:
 
 volumes:
   cassandra_data:
-    name: url-db
+    name: url-db-prod
   redis_data:
-    name: url-redis
+    name: url-redis-prod
 
 networks:
   url-net:
