@@ -8,4 +8,4 @@ app = FastAPI()
 def startup():
   init_db()
 
-app.include_router(router=router, prefix="/api/v1")
+app.include_router(router=router)

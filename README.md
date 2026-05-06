@@ -30,7 +30,7 @@ docker compose logs -f app
 ### Shorten a URL
 
 ```bash
-curl -X POST "http://localhost:8000/shorten?long_url=https://example.com/very/long/url"
+curl -X POST "http://localhost:5000/shorten?long_url=https://example.com/very/long/url"
 ```
 
 Response:
@@ -43,7 +43,7 @@ Response:
 ### Redirect to original URL
 
 ```bash
-curl http://localhost:8000/abc123
+curl http://localhost:5000/abc123
 ```
 
 This redirects to the original long URL.
